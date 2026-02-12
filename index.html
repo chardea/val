@@ -219,7 +219,7 @@
     
     <div class="container">
         <div class="question-container" id="question">
-            <h1>Will You Be My Valentine? 💕</h1>
+            <h1><span id="nameDisplay"></span>Will You Be My Valentine? 💕</h1>
             <div class="cute-bear">🧸💝</div>
             <p style="font-size: 1.2rem; color: #666; margin-bottom: 60px;">
                 I promise to love you forever... 
@@ -243,6 +243,13 @@
     </div>
 
     <script>
+        // Get name from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name');
+        if (name) {
+            document.getElementById('nameDisplay').textContent = name + ', ';
+        }
+
         const yesBtn = document.getElementById('yesBtn');
         const noBtn = document.getElementById('noBtn');
         const question = document.getElementById('question');
